@@ -1,6 +1,6 @@
-const moongose=require("moongose")
-
-const Schema=moongose.Schema
+const mongoose=require("mongoose")
+const imageModel=require('./image.model')
+const Schema=mongoose.Schema
 
 const bookSchema=new Schema({
     title:{
@@ -18,6 +18,9 @@ const bookSchema=new Schema({
     description:{
         type:String
     },
+    cover:{
+        type: imageModel,
+    },
     rating:{
         type:number,
         required: true,
@@ -31,6 +34,6 @@ const bookSchema=new Schema({
     timestamps: true,
 })
 
-const Book=moongose.model('Book',bookSchema)
+const Book=mongoose.model('Book',bookSchema)
 
 module.exports=Book;

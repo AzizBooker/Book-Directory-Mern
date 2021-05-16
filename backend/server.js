@@ -1,6 +1,6 @@
 const express = require('express')
 const cors=require('cors')
-const moongose=require('moongose')
+const mongoose=require('mongoose')
 
 const app = express()
 const port = process.env.port || 5000
@@ -12,6 +12,13 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
+const uri=process.env.ATLAS_URI;
+mongoose.connect(uri,{ useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true })
+
+const connection=mongoose.connection;
+connection.once('open',()=>{
+    console.log('MongoDB datebase connection established successfully')
+})
 
 const booksRouter=require('./routes/books.route')
 
