@@ -17,6 +17,6 @@ const genreSchema=new Schema({
 
 })
 
-const Book=moongose.model('Book',bookSchema)
+const Genre=mongoOse.model('Book',genreSchema)
 
-module.exports=Book;
+module.exports=GENERE;

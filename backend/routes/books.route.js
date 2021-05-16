@@ -10,13 +10,17 @@ router.route('/id/:id').get((req,res)=>{
 res.send('Hello from books/:id route')
 }
 )
-router.route('/add').get((req,res)=>{
-res.send('Hello from books/add route')
+router.route('/update').put((req,res)=>{
+    
+})
+router.route('/add/').post((req,res)=>{
+
 
 }
 )
 router.route('/remove/:id').delete((req,res)=>{
 res.send('Hello from books/remove/:id route')
+
 }
 )
 
