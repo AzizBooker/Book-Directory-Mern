@@ -12,17 +12,13 @@ const bookSchema=new Schema({
     author:{
         type: String,
         required: true,
-        unique: true,
         trim: true,
     },
     description:{
         type:String
     },
-    cover:{
-        type: imageModel,
-    },
     rating:{
-        type:number,
+        type:Number,
         required: true,
     },
     genre:{
