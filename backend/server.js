@@ -1,7 +1,6 @@
 const express = require('express')
 const cors=require('cors')
 const mongoose=require('mongoose')
-const MongoClient = require('mongodb').MongoClient;
 const bodyParser=require('body-parser')
 
 
@@ -20,14 +19,16 @@ app.use(express.json())
 
 const uri=process.env.ATLAS_URI;
 
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
-client.connect(err => {
-  console.log('log')
-});
 
+try {
+  mongoose.connect( uri, {useNewUrlParser: true, useUnifiedTopology: true}, () =>
+  console.log("connected"));    
+  }catch (error) { 
+  console.log("could not connect");    
+  }
 app.get('/', (req, res) => {
   
-  res.send(uri)
+  res.send("Hello")
 })
 const booksRouter=require('./routes/books.route')
 
