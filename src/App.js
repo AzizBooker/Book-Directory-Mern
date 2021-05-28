@@ -2,14 +2,16 @@ import logo from './logo.svg';
 import './App.css';
 import axios from 'axios';
 import ApiCall from './api/Api';
+import { useState, useEffect} from 'react'
+import Homepage from './Pages/HomePage'
 function App() {
 
-  //console.log(ApiCall({"title":"Atomic Habits"}))  
+  const [text,setText]=useState(" ")
   
-  
+
   return (
   <div>
-    <h1>Hello</h1>
+    <Homepage />
   </div>
   );
 }

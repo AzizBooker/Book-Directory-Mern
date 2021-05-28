@@ -6,11 +6,12 @@ async function ApiCall(arg){
     
     const response =await axios.get('http://localhost:5000/books')
       .then( (res)=>{
-          console.log(res.data)
+        
           return res.data
         
       }).
       then((res)=>{
+          console.log(res)
           return res
       })
       .catch((err)=>console.log(err))
